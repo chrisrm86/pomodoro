@@ -10,6 +10,8 @@ More code:  http://github.com/chrisrm86
 """
 from tkinter import *
 from tkinter.messagebox import *
+from playsound import playsound
+
 
 class Pomodoro():
     def __init__(self, master, *args, **kwarg):
@@ -19,7 +21,7 @@ class Pomodoro():
         self.app.resizable(False,False)
         self.running = False
         self.pomodoro_active = True
-        self.time = 1500
+        self.time = 5 #1500
         self.mins = 0
         self.secs = 0
         self.interface()
@@ -45,7 +47,8 @@ class Pomodoro():
     def timer(self):
         if self.running is True:
             if self.time <= 0:
-                showinfo(title="Alert", message="25 minutes...")
+                playsound('alarm.wav')
+                showinfo(title="Alert", message="Time...")
                 if self.pomodoro_active is True:
                     self.time = 300
                     self.pomodoro_active = False
