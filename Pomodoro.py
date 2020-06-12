@@ -8,15 +8,6 @@ e-mail:     christianrmoran86@gmail.com
 More code:  http://github.com/chrisrm86
 ##########################################################
 """
-
-"""
-Links:
-
-https://realpython.com/playing-and-recording-sound-python/
-
-https://simpleaudio.readthedocs.io/en/latest/tutorial.html
-"""
-
 from tkinter import *
 from tkinter.messagebox import *
 import simpleaudio as sa
@@ -29,10 +20,9 @@ class Pomodoro():
         self.app.resizable(False,False)
         self.running = False
         self.pomodoro_active = True
-        self.time = 5 #1500
+        self.time = 1500
         self.mins = 0
         self.secs = 0
-
         self.interface()
 
     def interface(self):
@@ -53,18 +43,9 @@ class Pomodoro():
         self.mins, self.secs = divmod(self.time, 60)
         return "{:02d}:{:02d}".format(self.mins, self.secs)
 
-    def alarm(self):
-        soundfile = "alarm.wav"
-        wave_obj = sa.WaveObject.from_wave_file(soundfile)
-        if self.running == True:
-            wave_obj.play()
-        else:
-            wave_obj.stop()
-
     def timer(self):
         if self.running is True:
             if self.time <= 0:
-                self.alarm()
                 showinfo(title="Alert", message="Time...")
                 if self.pomodoro_active is True:
                     self.time = 300
@@ -90,7 +71,6 @@ class Pomodoro():
         self.running = False
         self.time = 1500
         self.time_label.config(text="25:00")
-
 
 if __name__ == '__main__':
     root = Tk()
