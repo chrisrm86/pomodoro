@@ -10,7 +10,6 @@ More code:  http://github.com/chrisrm86
 """
 from tkinter import *
 from tkinter.messagebox import *
-import simpleaudio as sa
 
 class Pomodoro():
     def __init__(self, master, *args, **kwarg):
