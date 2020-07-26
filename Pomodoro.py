@@ -17,6 +17,7 @@ class Pomodoro():
         self.app.geometry("300x105")
         self.app.title("Pomodoro")
         self.app.resizable(False,False)
+        self.app.iconbitmap('tomato-icon.ico')
         self.running = False
         self.pomodoro_active = True
         self.time = 1500
@@ -33,9 +34,9 @@ class Pomodoro():
         self.button_container.pack(expand=NO, fill=X)
         self.time_label = Label(self.screen_container, text="25:00", font=('times 25',50),bg="black", fg="orange")
         self.time_label.pack(expand=NO, fill=X)
-        self.start_button = Button(self.button_container, bg="black", fg="orange", text="Start", width=13, command=lambda : self.start()).pack(side=LEFT)
-        self.stop_button = Button(self.button_container,  bg="black", fg="orange", text="Pause", width=13, command=lambda : self.stop()).pack(side=LEFT)
-        self.restart_button = Button(self.button_container,  bg="black", fg="orange", text="Restart", width=13, command=lambda : self.reset()).pack(side=LEFT)
+        self.start_button = Button(self.button_container, bg="white", fg="green", text="Start", width=13, command=lambda : self.start()).pack(side=LEFT)
+        self.stop_button = Button(self.button_container,  bg="white", fg="blue", text="Pause", width=13, command=lambda : self.stop()).pack(side=LEFT)
+        self.restart_button = Button(self.button_container,  bg="white", fg="red", text="Stop | Restart", width=13, command=lambda : self.reset()).pack(side=LEFT)
         self.app.bind("<Return>", lambda x: self.start())
 
     def calculate_time(self):
