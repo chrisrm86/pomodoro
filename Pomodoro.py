@@ -32,11 +32,11 @@ class Pomodoro():
         self.screen_container.pack(expand=NO, fill=X)
         self.button_container = Frame(self.main_container, bg="white", height=25, width=100)
         self.button_container.pack(expand=NO, fill=X)
-        self.time_label = Label(self.screen_container, text="25:00", font=('times 25',50),bg="black", fg="orange")
+        self.time_label = Label(self.screen_container, text="25:00", font=('times 25',50),bg="#2a9d8f", fg="#003049")
         self.time_label.pack(expand=NO, fill=X)
         self.start_button = Button(self.button_container, bg="white", fg="green", text="Start", width=13, command=lambda : self.start()).pack(side=LEFT)
         self.stop_button = Button(self.button_container,  bg="white", fg="blue", text="Pause", width=13, command=lambda : self.stop()).pack(side=LEFT)
-        self.restart_button = Button(self.button_container,  bg="white", fg="red", text="Stop | Restart", width=13, command=lambda : self.reset()).pack(side=LEFT)
+        self.restart_button = Button(self.button_container,  bg="white", fg="red", text="Stop | Restart", width=13, command=lambda:self.reset()).pack(side=LEFT)
         self.app.bind("<Return>", lambda x: self.start())
 
     def calculate_time(self):
